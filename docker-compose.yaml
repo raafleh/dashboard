@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    container_name: dashboard
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /.next
+      - /node_modules
