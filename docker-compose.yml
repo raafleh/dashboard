@@ -1,0 +1,25 @@
+services:
+  app:
+    build: .
+    container_name: dashboard-app
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+  db:
+    container_name: dashboard-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=asal123
+      - MYSQL_DATABASE=mdbrafleh
+      - MYSQL_USER=webuser
+      - MYSQL_PASSWORD=asal123
+    image: mysql:9
+    ports:
+      - "3306:3306"
+    volumes:
+      - mydata:/var/lib/mysql
+
+volumes:
+  mydata:
